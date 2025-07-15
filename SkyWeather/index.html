@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWeather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Background elements -->
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+        
+        <div class="header">
+            <h1>Weather Forecast</h1>
+            <p>Get real-time weather updates for any location</p>
+        </div>
+
+        <div class="main">
+            <div class="search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="location" placeholder="Enter city or location" />
+                </div>
+                <button id="searchBtn" onclick="getcity()">
+                    <i class="fas fa-search-location"></i> Search
+                </button>
+                <div class="divider">or</div>
+                <button id="currentLocationBtn" onclick="getCurrentLocationWeather()">
+                    <i class="fas fa-location-arrow"></i> Use Current Location
+                </button>
+            </div>
+
+            <div class="weather-info" id="weatherInfo">
+                <button type="button" id="toggleunit" onclick="changeunit()">
+                    <i class="fas fa-exchange-alt"></i> <span id="unit">°C</span>/<span id="unitToggle">°F</span>
+                </button>
+                
+                <div class="weather-header">
+                    <h2 id="locationName">New York, US</h2>
+                    <p id="date">Monday, June 5</p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="weather-icon" id="weatherIcon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temperature-container">
+                        <p id="temperature">24°C</p>
+                        <p id="description">Sunny</p>
+                    </div>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">65%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Wind Speed</span>
+                            <span class="detail-value" id="windSpeed">12 km/h</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Feels Like</span>
+                            <span class="detail-value" id="feelsLike">26 <span id="unitToggle1">°C</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value" id="pressure">1012 hPa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
