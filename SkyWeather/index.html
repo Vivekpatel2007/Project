@@ -4,94 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkyWeather</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="new.css">
 </head>
 <body>
-    
     <div class="container">
-        <!-- Background elements -->
-        <div class="bg-element"></div>
-        <div class="bg-element"></div>
-        
         <div class="header">
-            <h1>Weather Forecast</h1>
-            <p>Get real-time weather updates for any location</p>
+            <h1>SkyWeather</h1>
+            <p>Get accurate weather forecasts for any location</p>
         </div>
 
-        <div class="main">
-            <div class="search">
+        <div class="main-content">
+            <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="location" placeholder="Enter city or location" />
+                    <input type="text" id="location" placeholder="Enter city name...">
                 </div>
-                <button id="searchBtn" onclick="getcity()">
-                    <i class="fas fa-search-location"></i> Search
-                </button>
-                <div class="divider">or</div>
-                <button id="currentLocationBtn" onclick="getCurrentLocationWeather()">
-                    <i class="fas fa-location-arrow"></i> Use Current Location
-                </button>
+                <div class="search-buttons">
+                    <button id="searchBtn" onclick="getCityWeather()">
+                        <i class="fas fa-search-location"></i> Search
+                    </button>
+                    <button id="currentLocationBtn" onclick="getCurrentLocationWeather()">
+                        <i class="fas fa-location-arrow"></i> Current Location
+                    </button>
+                </div>
             </div>
 
-            <div class="weather-info" id="weatherInfo">
-                <button type="button" id="toggleunit" onclick="changeunit()">
-                    <i class="fas fa-exchange-alt"></i> <span id="unit">°C</span>/<span id="unitToggle">°F</span>
-                </button>
-                
-                <div class="weather-header">
-                    <h2 id="locationName">New York, US</h2>
-                    <p id="date">Monday, June 5</p>
+            <div class="weather-display">
+                <div class="current-weather">
+                    <div class="weather-header">
+                        <div class="location-info">
+                            <h2 id="lname">New York, US</h2>
+                            <p id="date">Monday, June 5, 2023</p>
+                        </div>
+                        <button class="unit-toggle" id="toggleunit" onclick="toggleUnit()">
+                            <i class="fas fa-exchange-alt"></i> °C/°F
+                        </button>
+                    </div>
+
+                    <div class="weather-main">
+                        <div class="temperature-display">
+                            <div class="weather-icon">
+                                <img src="" id="weather-icon" alt="Weather Icon">
+                            </div>
+                            <div>
+                                <div id="temp-value">24°C</div>
+                                <div id="weather-desc">Sunny</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="detail-text">
+                                <span>Humidity</span>
+                                <span id="humidity">65%</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="detail-text">
+                                <span >Wind Speed</span>
+                                <span id="windSpeed">12 km/h</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-temperature-low"></i>
+                            </div>
+                            <div class="detail-text">
+                                <span >Feels Like</span>
+                                <span id="feelsLike">26°C</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                            </div>
+                            <div class="detail-text">
+                                <span>Pressure</span>
+                                <span id="pressure">1012 hPa</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                            </div>
+                            <div class="detail-text">
+                                <span>Air Quality</span>
+                                <span id="air">Poor</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="weather-main">
-                    <div class="weather-icon" id="weatherIcon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="temperature-container">
-                        <p id="temperature">24°C</p>
-                        <p id="description">Sunny</p>
+
+                <div class="forecast-section">
+                    <h3 class="forecast-title">5-Day Forecast</h3>
+                    <div class="forecast-container">
+                        <div class="forecast-card">
+                            <div class="forecast-day">Tue</div>
+                            <div class="forecast-icon">
+                                <img src="" class="fore-icon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-temp">23°</div>
+                            <div class="forecast-temp2">23°</div>
+                        </div>
+                        <div class="forecast-card">
+                            <div class="forecast-day">Wed</div>
+                            <div class="forecast-icon">
+                               <img src="" class="fore-icon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-temp">20°</div>
+                            <div class="forecast-temp2">23°</div>
+                        </div>
+                        <div class="forecast-card">
+                            <div class="forecast-day">Thu</div>
+                            <div class="forecast-icon">
+                                <img src="" class="fore-icon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-temp">19°</div>
+                            <div class="forecast-temp2">23°</div>
+                        </div>
+                        <div class="forecast-card">
+                            <div class="forecast-day">Fri</div>
+                            <div class="forecast-icon">
+                                <img src="" class="fore-icon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-temp">25°</div>
+                            <div class="forecast-temp2">23°</div>
+                        </div>
+                        <div class="forecast-card">
+                            <div class="forecast-day">Sat</div>
+                            <div class="forecast-icon">
+                                <img src="" class="fore-icon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-temp">22°</div>
+                            <div class="forecast-temp2">23°</div>
+                        </div>
+                       
                     </div>
                 </div>
-                
-                <div class="weather-details">
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <i class="fas fa-tint"></i>
+                <div class="forecast-section">
+                    <h3 class="forecast-title">Hourly Forecast</h3>
+                    <div class="forecast-container">
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Tue</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">23°</div>
                         </div>
-                        <div class="detail-text">
-                            <span class="detail-label">Humidity</span>
-                            <span class="detail-value" id="humidity">65%</span>
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Wed</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">20°</div>
                         </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <i class="fas fa-wind"></i>
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Thu</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">19°</div>
                         </div>
-                        <div class="detail-text">
-                            <span class="detail-label">Wind Speed</span>
-                            <span class="detail-value" id="windSpeed">12 km/h</span>
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Fri</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">25°</div>
                         </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <i class="fas fa-temperature-low"></i>
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Sat</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">22°</div>
                         </div>
-                        <div class="detail-text">
-                            <span class="detail-label">Feels Like</span>
-                            <span class="detail-value" id="feelsLike">26 <span id="unitToggle1">°C</span></span>
+                        
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Sun</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">21°</div>
                         </div>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <div class="detail-icon">
-                            <i class="fas fa-compress-arrows-alt"></i>
+
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Sun</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">21°</div>
                         </div>
-                        <div class="detail-text">
-                            <span class="detail-label">Pressure</span>
-                            <span class="detail-value" id="pressure">1012 hPa</span>
+
+                        <div class="forecast-card">
+                            <div class="forecast-hour">Sun</div>
+                            <div class="forecast-hicon">
+                                <img src="" class="fore-hicon" alt="fore-icon">
+                            </div>
+                            <div class="forecast-htemp">21°</div>
                         </div>
                     </div>
                 </div>
@@ -99,5 +218,5 @@
         </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="new.js"></script>
 </html>
